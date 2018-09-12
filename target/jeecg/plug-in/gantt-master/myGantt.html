@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>如何使用dhtmlxGantt</title>
+    <script src="codebase/dhtmlxgantt.js"></script>
+    <link href="codebase/dhtmlxgantt.css" rel="stylesheet">
+<!--全屏模式-->
+    <style type="text/css" media="screen">
+        html, body{
+            margin:0px;
+            padding:0px;
+            height:100%;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="gantt_here" style='width:1000px; height:400px;'></div>
+    <script type="text/javascript">
+
+        gantt.init("gantt_here");
+
+        var tasks={
+            data:[
+                {id:1, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:0.6, open:true},
+                {id:2, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:1, open:true},
+                {id:3, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:0.5, open:true},
+                {id:4, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:0.5, open:true},
+                {id:5, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:1, open:true},
+                {id:6, text:"项目 #1", start_date:"2016-05-01", duration:11, progress:0.6, open:true}
+            ],
+            links:[
+                {id:1, source:1, target:2, type:"1"},
+                {id:2, source:1, target:3, type:"1"},
+                {id:3, source:3, target:4, type:"1"},
+                {id:4, source:4, target:5, type:"0"},
+                {id:5, source:5, target:6, type:"0"}
+            ]
+        };
+
+        gantt.parse(tasks);
+
+
+
+    </script>
+</body>
+</html>
+
